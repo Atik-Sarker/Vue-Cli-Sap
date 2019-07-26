@@ -4,12 +4,12 @@
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-9">
-                     <Inventory :items="items"></Inventory>
+                     <Inventory :items="items"  @newItemAdded="addCartItem"></Inventory>
                 </div>
 
 
                 <div class="col-lg-3">
-                    <Cart></Cart>
+                    <Cart :carts="carts"></Cart>
                 </div>
 
 
@@ -33,11 +33,17 @@
         data(){
             return {
                 items : [],
+                carts : []
             }
         },
         mounted(){
             this.items = data;
-            console.log(this.items)
+            //console.log(this.items)
+        },
+        methods:{
+            addCartItem(item){
+                this.carts.push(item)
+            }
         }
     }
 </script>

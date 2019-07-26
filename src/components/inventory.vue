@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{item.name}}</h5>
                         <p class="card-text">{{item.price}}</p>
-                        <a href="#" class="btn btn-info">Add to Cart</a>
+                        <a @click="addToCart(item)" class="btn btn-info">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -17,8 +17,16 @@
 
 <script>
     export default {
-        props : ['items']
+        props : ['items'],
+
+
+        methods:{
+            addToCart(item){
+                return this.$emit('newItemAdded', item)
+            }
+        }
     }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
