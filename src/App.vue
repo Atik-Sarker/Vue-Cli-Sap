@@ -6,13 +6,9 @@
                 <div class="col-lg-9">
                      <Inventory :items="items"  @newItemAdded="addCartItem"></Inventory>
                 </div>
-
-
                 <div class="col-lg-3">
-                    <Cart :carts="carts"></Cart>
+                    <Cart :carts="carts" @remove="itemRemove"></Cart>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -38,16 +34,21 @@
         },
         mounted(){
             this.items = data;
-            //console.log(this.items)
         },
         methods:{
+            //add item on the cart
             addCartItem(item){
-                this.carts.push(item)
+               return this.carts.push(item)
+            },
+            // remove item from cart
+            itemRemove(item){
+                return this.carts.splice(item, 1)
+                // alert(item);
             }
         }
     }
 </script>
-
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 
 </style>

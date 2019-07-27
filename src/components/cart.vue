@@ -4,9 +4,10 @@
             <span class="item-name">Name</span>
             <span class="item-price float-right">Price</span>
         </li>
-        <li class="list-group-item" v-for="(cart, index) in carts" :key="index">
-            <span class="item-name">{{cart.name}}</span>
-            <span class="item-price float-right">${{cart.price}}</span>
+        <li class="list-group-item" v-for="(item, index) in carts" :key="index">
+            <button @click="removeItem(item)" class="btn btn-danger"> - </button>
+            <span class="item-name">{{item.name}}</span>
+            <span class="item-price float-right">${{item.price}}</span>
         </li>
         <li class="list-group-item">
             <span class="item-name">Total</span>
@@ -17,8 +18,9 @@
 
 <script>
     export default {
+        //received data from parent component using props
         props : ['carts'],
-
+        // calculate cart total price
         computed:{
             TotalPrice(){
                 let total = 0;
@@ -26,12 +28,16 @@
                     total += parseFloat(item.price)
                 });
                 return  total.toFixed(2);
-
+            }
+        },
+        methods: {
+            // send event child component to parent component
+            removeItem(index){
+                return this.$emit('remove', index)
             }
         }
     }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 

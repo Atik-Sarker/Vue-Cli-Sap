@@ -17,18 +17,16 @@
 
 <script>
     export default {
+        // received data from parent component using props
         props : ['items'],
-
-
         methods:{
+            // send event chaild to parent component
             addToCart(item){
                 return this.$emit('newItemAdded', item)
             }
         }
     }
-
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
