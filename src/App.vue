@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBar></NavBar>
+        <NavBar  @search="search"></NavBar>
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-9">
@@ -36,15 +36,22 @@
             this.items = data;
         },
         methods:{
+            // search product from items
+            search(keyword){
+             return this.items = data.filter(item =>{
+                   return item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
+               })
+            },
             //add item on the cart
             addCartItem(item){
+
                return this.carts.push(item)
             },
             // remove item from cart
             itemRemove(item){
                 return this.carts.splice(item, 1)
                 // alert(item);
-            }
+            },
         }
     }
 </script>
