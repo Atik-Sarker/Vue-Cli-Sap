@@ -19,7 +19,7 @@ export default new VueRouter({
             component: Hello
         },
         {
-            path: '/test',
+            path: '/test/:id',
             name: 'Test',
             component: Test
         }

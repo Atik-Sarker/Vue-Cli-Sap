@@ -5,7 +5,9 @@
 
         <router-link to="/">Home</router-link>
         <router-link to="Hello">Hello</router-link>
-        <router-link to="Test">Test</router-link>
+        <router-link :to="{path: '/test/1'}">Test 1</router-link>
+        <router-link :to="{path: '/test/2'}">Test 3</router-link>
+        <router-link :to="{path: '/test/3'}">Test 3</router-link>
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-9">
