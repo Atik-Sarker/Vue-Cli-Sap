@@ -18,7 +18,12 @@
 <script>
     export default {
         // received data from parent component using props
-        props : ['items'],
+        // props : ['items'],
+        data(){
+          return {
+              items: []
+          }
+        },
         methods:{
             // send event chaild to parent component
             addToCart(item){

@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import inventory from '@/components/view/inventory'
 import Hello from '@/components/Hello'
-import Home from '@/components/Home'
-import Test from '@/components/Test'
+import Home from '@/components/view/Home'
+import ItemDetails from '@/components/view/ItemDetails'
 
 Vue.use(VueRouter)
 
@@ -11,7 +12,7 @@ export default new VueRouter({
         {
             path: '/',
             name: 'Home',
-            component: Home
+            component: inventory
         },
         {
             path: '/hello',
@@ -19,9 +20,9 @@ export default new VueRouter({
             component: Hello
         },
         {
-            path: '/test/:id',
-            name: 'Test',
-            component: Test
+            path: '/item/:id',
+            name: 'Item',
+            component: ItemDetails
         }
     ]
 })

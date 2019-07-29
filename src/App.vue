@@ -1,17 +1,18 @@
 <template>
     <div id="app">
         <NavBar  @search="search"></NavBar>
-        <router-view></router-view>
+
 
         <router-link to="/">Home</router-link>
-        <router-link to="Hello">Hello</router-link>
-        <router-link :to="{path: '/test/1'}">Test 1</router-link>
-        <router-link :to="{path: '/test/2'}">Test 3</router-link>
-        <router-link :to="{path: '/test/3'}">Test 3</router-link>
+        <router-link to="/Hello">Hello</router-link>
+        <router-link :to="{path: '/item/1'}">Test 1</router-link>
+        <router-link :to="{path: '/item/2'}">Test 3</router-link>
+        <router-link :to="{path: '/item/3'}">Test 3</router-link>
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-9">
-                     <Inventory :items="items"  @newItemAdded="addCartItem"></Inventory>
+                    <router-view></router-view>
+                     <!--<Inventory :items="items"  @newItemAdded="addCartItem"></Inventory>-->
                 </div>
                 <div class="col-lg-3">
                     <Cart :carts="carts" @remove="itemRemove"></Cart>
@@ -23,7 +24,7 @@
 
 <script>
     import NavBar from './components/navbar';
-    import Inventory from './components/inventory';
+    import Inventory from './components/view/inventory';
     import Cart from './components/cart';
     import data from './../data';
     export default {
