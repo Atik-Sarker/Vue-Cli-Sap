@@ -1,6 +1,11 @@
 <template>
     <div id="app">
         <NavBar  @search="search"></NavBar>
+        <router-view></router-view>
+
+        <router-link to="/">Home</router-link>
+        <router-link to="Hello">Hello</router-link>
+        <router-link to="Test">Test</router-link>
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-9">

@@ -30,7 +30,18 @@ window.$ = window.jquery = require('jquery');
 import 'bootstrap'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+# install Vue Router
+```
+# npm install vue-router
 
+Register vue Router on main.js file
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+# create router folder and web.js file and create route onweb js file and create  hello.vue  for '/' route
+
+```
 
 
 
