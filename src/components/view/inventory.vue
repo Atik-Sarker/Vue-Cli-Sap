@@ -2,14 +2,16 @@
 
         <div class="row" v-if="! lodding">
             <div class="col-lg-3"  v-for="(item , index) in items" :key="index">
-                <div class="card">
-                    <img class="card-img-top" v-bind:src="item.image" v-bind:alt="item.name">
-                    <div class="card-body">
-                        <h5 class="card-title">{{item.name}}</h5>
-                        <p class="card-text">{{item.price}}</p>
-                        <a @click="addToCart(item)" class="btn btn-info">Add to Cart</a>
+                    <div class="card">
+                         <router-link :to="{path: 'item/' + item.id}">
+                            <img class="card-img-top" v-bind:src="item.image" v-bind:alt="item.name">
+                        </router-link>
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p class="card-text">{{item.price}}</p>
+                        </div>
+                         <a @click="addToCart(item)" class="btn btn-info">Add to Cart</a>
                     </div>
-                </div>
             </div>
 
         </div>

@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBar  @search="search"></NavBar>
+        <NavBar @search="search"></NavBar>
 
 
         <router-link to="/">Home</router-link>
@@ -11,7 +11,7 @@
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-9">
-                    <router-view></router-view>
+                    <router-view @newItemAdded="addCartItem"></router-view>
                      <!--<Inventory :items="items"  @newItemAdded="addCartItem"></Inventory>-->
                 </div>
                 <div class="col-lg-3">
@@ -27,6 +27,7 @@
     import Inventory from './components/view/inventory';
     import Cart from './components/cart';
     import data from './../data';
+    import axios from 'axios'
     export default {
 
         components: {
@@ -46,9 +47,10 @@
         methods:{
             // search product from items
             search(keyword){
-             return this.items = data.filter(item =>{
-                   return item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
-               })
+                axios.get('http://localhost:3000/search/' + keyword).then(response => {
+                  var searchData =  this.items = response.data;
+                   console.log(searchData)
+                })
             },
             //add item on the cart
             addCartItem(item){
