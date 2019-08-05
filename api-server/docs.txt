@@ -1,0 +1,13 @@
+create api server
+ npm init
+ npm install express cors --save
+
+//run api server
+node index.js
+
+//show all data
+localhos:3000/items
+//show single data
+localhos:3000/item/1
+//search data/localhos:3000/search/abc
+
