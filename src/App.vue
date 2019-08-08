@@ -5,13 +5,11 @@
         <router-link to="/">Home</router-link>
         <router-link to="/Hello">Hello</router-link>
         <router-link :to="{path: '/item/1'}">Test 1</router-link>
-        <router-link :to="{path: '/item/2'}">Test 3</router-link>
-        <router-link :to="{path: '/item/3'}">Test 3</router-link>
 
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-9">
-                    <router-view @newItemAdded="addCartItem"></router-view>
+                    <router-view></router-view>
                      <!--<Inventory :items="items"  @newItemAdded="addCartItem"></Inventory>-->
                 </div>
                 <div class="col-lg-3">
@@ -52,11 +50,7 @@
                    console.log(searchData)
                 })
             },
-            //add item on the cart
-            addCartItem(item){
-
-               return this.carts.push(item)
-            },
+            
             // remove item from cart
             itemRemove(item){
                 return this.carts.splice(item, 1)

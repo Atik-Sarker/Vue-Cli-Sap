@@ -35,7 +35,9 @@
         methods:{
             // send event chaild to parent component
             addToCart(item){
-                return this.$emit('newItemAdded', item)
+                // alert('hello world')
+                this.$store.commit('addToCart', item)
+                // return this.$emit('newItemAdded', item)
             },
             fatchInventory(){
                 var self = this;
