@@ -10,7 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 Vue.config.productionTip = false;
 
-
+import vuex from 'vuex';
+Vue.use(vuex);
 
 /* eslint-disable no-new */
 
