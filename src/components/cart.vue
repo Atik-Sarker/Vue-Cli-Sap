@@ -19,9 +19,12 @@
 <script>
     export default {
         //received data from parent component using props
-        props : ['carts'],
+        // props : ['carts'],
         // calculate cart total price
         computed:{
+            carts(){
+              return this.$store.getters.GetCart
+            },
             TotalPrice(){
                 let total = 0;
                 this.carts.forEach(item => {
