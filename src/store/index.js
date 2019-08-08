@@ -5,19 +5,22 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         inventory:[],
-        cart: []
+        carts: []
     },
     getters: {
         GetInventory(state){
             return state.inventory
         },
         GetCart(state){
-            return state.cart
+            return state.carts
         }
     },
     mutations:{
         addToCart(state, payload){
-            return state.cart.push(payload)
+            return state.carts.push(payload)
+        },
+        removeItem(state, payload){
+            return state.carts.splice(payload, 1)
         }
     }
 })

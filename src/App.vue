@@ -50,12 +50,6 @@
                    console.log(searchData)
                 })
             },
-            
-            // remove item from cart
-            itemRemove(item){
-                return this.carts.splice(item, 1)
-                // alert(item);
-            },
         }
     }
 </script>

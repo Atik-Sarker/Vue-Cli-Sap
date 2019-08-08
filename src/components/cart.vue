@@ -36,7 +36,7 @@
         methods: {
             // send event child component to parent component
             removeItem(index){
-                return this.$emit('remove', index)
+                return this.$store.commit('removeItem', index)
             }
         }
     }
