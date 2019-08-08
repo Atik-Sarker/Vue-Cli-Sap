@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router/index'
+import store from './store/index'
 
 window.$ = window.jquery = require('jquery');
 import 'bootstrap';
@@ -10,14 +11,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 Vue.config.productionTip = false;
 
-import vuex from 'vuex';
-Vue.use(vuex);
+
 
 /* eslint-disable no-new */
 
 new Vue({
   el: '#app',
     router,
+    store,
   components: { App },
   template: '<App/>'
 });
