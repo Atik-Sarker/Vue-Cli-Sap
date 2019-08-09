@@ -1,7 +1,7 @@
 <template>
 
         <div class="row" v-if="! lodding">
-            <div class="col-lg-3"  v-for="(item , index) in items" :key="index">
+            <div class="col-lg-3"  v-for="(item , index) in items[0]" :key="index">
                     <div class="card">
                          <router-link :to="{path: 'item/' + item.id}">
                             <img class="card-img-top" v-bind:src="item.image" v-bind:alt="item.name">
@@ -26,26 +26,27 @@
         data(){
           return {
               lodding: true,
-              items: []
           }
+        },
+        computed:{
+           items(){
+              return this.$store.getters.GetInventory
+            }
         },
         mounted(){
             this.fatchInventory()
         },
         methods:{
-            // send event chaild to parent component
+            // send commit vuex state management
             addToCart(item){
-                // alert('hello world')
-                this.$store.commit('addToCart', item)
-                // return this.$emit('newItemAdded', item)
+                return this.$store.commit('addToCart', item)
             },
             fatchInventory(){
                 var self = this;
                 axios.get('http://localhost:3000/items').then(response =>{
 
                         self.lodding = false;
-                        self.items = response.data;
-
+                   return self.$store.commit('setInventory', response.data)
                     // setTimeout(function(){
                     //     self.lodding = false;
                     //     self.items = response.data;

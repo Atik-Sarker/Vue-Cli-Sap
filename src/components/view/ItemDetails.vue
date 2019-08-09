@@ -40,9 +40,9 @@
                     this.lodding = false;
                 })
             },
-            addToCart(item){
-                return this.$emit('newItemAdded', item)
-            }
+            addToCart(index){
+                return this.$store.commit('addToCart', index)
+            },
         }
     }
 </script>

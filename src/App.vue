@@ -13,7 +13,7 @@
                      <!--<Inventory :items="items"  @newItemAdded="addCartItem"></Inventory>-->
                 </div>
                 <div class="col-lg-3">
-                    <Cart :carts="carts" @remove="itemRemove"></Cart>
+                    <Cart></Cart>
                 </div>
             </div>
         </div>

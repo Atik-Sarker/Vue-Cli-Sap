@@ -34,7 +34,7 @@
             }
         },
         methods: {
-            // send event child component to parent component
+            // send commit vuex state management
             removeItem(index){
                 return this.$store.commit('removeItem', index)
             }
