@@ -34,6 +34,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
 export default {
     data(){
         return {
@@ -42,7 +43,11 @@ export default {
     },
     methods:{
         search(){
-            return this.$emit('search', this.keyword)
+            var self = this
+            axios.get('http://localhost:3000/search/' + this.keyword).then(response => {
+                console.log(response.data)
+               return self.$store.commit('setInventory', response.data)
+            })
         }
     }
 }

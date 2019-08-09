@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBar @search="search"></NavBar>
+        <NavBar></NavBar>
 
         <router-link to="/">Home</router-link>
         <router-link to="/Hello">Hello</router-link>
@@ -44,12 +44,7 @@
         },
         methods:{
             // search product from items
-            search(keyword){
-                axios.get('http://localhost:3000/search/' + keyword).then(response => {
-                  var searchData =  this.items = response.data;
-                   console.log(searchData)
-                })
-            },
+
         }
     }
 </script>

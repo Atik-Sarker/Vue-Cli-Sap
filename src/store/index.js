@@ -8,7 +8,7 @@ export default new Vuex.Store({
         carts: []
     },
     getters: {
-        GetInventory(state){
+        getInventory(state){
             return state.inventorys
         },
         GetCart(state){
@@ -17,7 +17,7 @@ export default new Vuex.Store({
     },
     mutations:{
         setInventory(state, payload){
-            return state.inventorys.push(payload)
+            return state.inventorys = payload
         },
         addToCart(state, payload){
             return state.carts.push(payload)

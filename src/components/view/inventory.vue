@@ -1,7 +1,7 @@
 <template>
 
         <div class="row" v-if="! lodding">
-            <div class="col-lg-3"  v-for="(item , index) in items[0]" :key="index">
+            <div class="col-lg-3"  v-for="(item , index) in items" :key="index">
                     <div class="card">
                          <router-link :to="{path: 'item/' + item.id}">
                             <img class="card-img-top" v-bind:src="item.image" v-bind:alt="item.name">
@@ -30,7 +30,7 @@
         },
         computed:{
            items(){
-              return this.$store.getters.GetInventory
+              return this.$store.getters.getInventory
             }
         },
         mounted(){
